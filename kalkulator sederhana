@@ -1,0 +1,148 @@
+#include <stdio.h>
+#include <math.h>
+double x,y,hasil;
+int kon;
+void penjumlahan(double x,double y){
+    hasil = x + y ;
+    printf(" hasil penjumlahan : %.2lf\n\n ",hasil);
+}
+void pengurangan(double x,double y){
+    hasil = x - y;
+    printf("Hasil pengurangan : %.2lf\n\n",hasil);
+}
+void perkalian (double x,double y){
+    hasil = x * y;
+    printf("Hasil perkalian : %.2lf\n\n",hasil);
+}
+void pembagian (double x,double y){
+    if(y == 0){
+        printf("Hasil tidak terdefinisi\n\n");
+    }else{
+        hasil = x / y;
+        printf("Hasil pembagian : %.2lf\n\n",hasil);
+    }
+}
+void pangkat (double x,double y){
+
+        hasil = pow(x,y);
+        printf("Hasil pangkat : %.2lf \n\n",hasil);
+    
+}
+void faktorial (int x){
+    if (x < 0) {
+        printf("Faktorial tidak terdefinisi untuk angka negatif\n\n");
+    } else {
+        hasil = 1;
+        for (int i = 1; i <= x; i++) {
+            hasil *= i; // Mengalikan hasil dengan i
+        }
+        printf("Hasil faktorial: %lf\n\n", hasil);
+    }
+}
+void modulus(int x,int y){
+    if(x == 0){
+        printf("Hasil tidak terdefinisi \n\n");
+    }else{
+        printf("Hasil modulus : %d\n\n",x % y);
+    }
+}
+void akar(double x){
+    if(x < 0){
+        printf("Error!\n\n");
+    }else{
+        hasil = sqrt(x);
+        printf("Hasil Akar pangkat kuadrat : %.2lf\n\n",hasil);
+    }
+}
+void sinus(double x){
+    hasil = sin(x);
+    printf("Hasil sin = %.2lf\n\n",hasil);
+}
+void cosinus(double x){
+    hasil = cos(x);
+    printf("Hasil cos = %.2lf\n\n",hasil);
+}
+void tangen(double x){
+    hasil = tan(x);
+    printf("Hasil tan = %.2lf\n\n",hasil);
+}
+int main(){
+    double x,y;
+    int kon;
+    while (kon != 12 ) {
+		printf ("=== Kalkulator Sederhana === \n\n");
+	    printf (" Daftar Operator \n");
+	    printf ("_________________________________ \n");
+	    printf ("| No.|  Operator |    Operasi   | \n");
+	    printf ("_________________________________ \n");
+	    printf ("|  1 |     +     |  Penjumlahan | \n");
+	    printf ("|  2 |     -     |  Pengurangan | \n");
+	    printf ("|  3 |     *     |  Perkalian   | \n");
+	    printf ("|  4 |     /     |  Pembagian   | \n");
+	    printf ("|  5 |     ^     |  Pangkat     | \n");
+        printf ("|  6 |     !     |  Faktorial   | \n");
+        printf ("|  7 |     %%     |  Modulus     | \n");
+        printf ("|  8 |     √     |  Akar        | \n");
+        printf ("|  9 |     sin   |  Sin         | \n");
+        printf ("| 10 |     cos   |  Cos         | \n");
+        printf ("| 11 |     tan   |  tan         | \n");
+	    printf ("_________________________________ \n");
+	    printf ("\n\n");
+	    printf ("Selamat datang di kalkulator sederhana! \n");
+	    printf ("Masukkan operator sesuai pilihan yang tersedia \n");
+	    printf ("Ketik 12 jika anda tidak menggunakan kalkulator \n\n");
+		printf ("Pilih operator: ");
+		scanf ("%d", &kon);
+        if(kon == 12 ){
+            printf("Terima kasih telah menggunakan kalkulator");
+            break;
+        }
+        if((kon >=1 && kon <= 5) || kon == 7){
+            printf("Masukkan Angka Pertama : ");
+            scanf("%lf",&x);
+            printf("Masukkan Angka Kedua : ");
+            scanf("%lf",&y);
+         }else if(kon == 6 || (kon>= 8 && kon <= 11)){
+            printf("Masukkan Angka : ");
+            scanf("%lf",&x);
+         }
+         switch(kon){
+            case 1 :
+            penjumlahan (x,y);
+            break;
+            case 2 :
+            pengurangan (x,y);
+            break;
+            case 3 :
+            perkalian (x,y);
+            break;
+            case 4 :
+            pembagian (x,y);
+            break;
+            case 5 :
+            pangkat (x,y);
+            break;
+            case 6 :
+            faktorial ((int) x);
+            break;
+            case 7 :
+            modulus ((int) x,(int) y);
+            break;
+            case 8 :
+            akar (x);
+            break;
+            case 9 :
+            sinus (x);
+            break;
+            case 10 :
+            cosinus (x);
+            break;
+            case 11 :
+            tangen (x);
+            break;
+            default :
+            printf("Operator tidak tersedia.Coba masukkan operator lain\n\n");
+         }
+}
+return 0;
+}
